@@ -1,0 +1,33 @@
+package Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import Dao.UsersDao;
+@Service
+public class UsersServImpl implements UsersServ{
+	@Autowired
+	private UsersDao userDao;
+
+	@Override
+	public void add(Users user) {
+		
+		
+	}
+
+	@Override
+	public void removeById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Users> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}
