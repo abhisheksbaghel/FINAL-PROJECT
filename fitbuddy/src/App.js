@@ -9,6 +9,8 @@ import Analytics from "./Pages/Analytics";
 import Product from "./Pages/Product";
 import ProductList from "./Pages/ProductList";
 import BMICal from "./Pages/Comment";
+import { Box } from "@mui/system";
+import ExerciseDetail from "./Pages/ExerciseDetail";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/analytics" element={<Analytics/>}/>
         <Route path="/product" element={<Product/>}/>
         <Route path="/profile" element={<ProductList/>}/>
+        <Route path="/exercise/:id" element={<ExerciseDetail />} />
       </Routes>
       </Sidebar>
     </BrowserRouter>
