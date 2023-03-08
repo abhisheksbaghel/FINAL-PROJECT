@@ -72,6 +72,7 @@ const onload = () => {
 </div>
  
         <div className="dashb">
+        <Chart2/>
             <h1>Dashboard page</h1>
             <div style={{display: "flex", justifyContent:"space-around" }}>
             <Chart
@@ -87,7 +88,6 @@ const onload = () => {
               width="500"
             />
             </div>
-            <Chart2/>
         </div>
         </>
 

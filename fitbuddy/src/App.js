@@ -7,10 +7,10 @@ import Dashboard from "./Pages/Dashboard";
 import About from "./Pages/About";
 import Analytics from "./Pages/Analytics";
 import Product from "./Pages/Product";
-import ProductList from "./Pages/ProductList";
 import BMICal from "./Pages/Comment";
-import { Box } from "@mui/system";
 import ExerciseDetail from "./Pages/ExerciseDetail";
+import LoginDemo2 from "./Pages/LoginDemo2";
+import Diet from "./Pages/Diet";
 
 function App() {
   return (
@@ -22,8 +22,10 @@ function App() {
         <Route path="/bmi-calculator" element={<BMICal/>}/>
         <Route path="/analytics" element={<Analytics/>}/>
         <Route path="/product" element={<Product/>}/>
-        <Route path="/profile" element={<ProductList/>}/>
-        <Route path="/exercise/:id" element={<ExerciseDetail />} />
+        <Route path="/signup" element={<LoginDemo2/>}/>
+        <Route path="/exercise/0001" element={<ExerciseDetail />} />
+        <Route path="/diet" element={<Diet />} />
+
       </Routes>
       </Sidebar>
     </BrowserRouter>

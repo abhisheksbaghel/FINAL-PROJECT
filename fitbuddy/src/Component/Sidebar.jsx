@@ -4,7 +4,8 @@ import{
     FaFax,
     FaRegChartBar,
     FaShoppingBag,
-    FaTh, FaUserCircle, FaUsers
+    FaTh, FaUserCircle, FaUsers,FaUtensils,FaSignInAlt,
+    FaRunning
 } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
@@ -43,6 +44,21 @@ const Sidebar = ({children}) =>{
             names:"Profile",
             icon:<FaUserCircle/>
         },
+        {
+            path: "/signup",
+            names:"SignUp",
+            icon:<FaSignInAlt/>
+        },
+        {
+            path: "/diet",
+            names:"Diet",
+            icon:<FaUtensils/>
+        },
+        {
+            path: "/exercise/0001",
+            names:"Exercise",
+            icon:<FaRunning/>
+        },
     ]
     return(
         <div className='container1'>
@@ -56,7 +72,7 @@ const Sidebar = ({children}) =>{
                 </div>
                 {
                     menuItem.map((items,index)=>(
-                        <NavLink to={items.path} key={index} className="link" activeclassName="active">
+                        <NavLink to={items.path} key={index} className="link" activeclassname="active">
                             <div className="icon">{items.icon}</div>
                             <div style={{display: isOpen ? "block":"none"}} className="link_text">{items.names}</div>
                         </NavLink>

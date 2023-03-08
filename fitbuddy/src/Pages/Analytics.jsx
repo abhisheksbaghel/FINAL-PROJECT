@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Analytics.css";
+import axios from "axios";
 
 const Analytics = () =>{
+  const [users,setUsers] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:8080/users/getList').then((response) => {
+        setUsers(response.data);
+        console.log(response.data);
+  });
+    },[]);
     return(
         <>
         <div className="container-xl">
@@ -49,6 +57,8 @@ const Analytics = () =>{
           </tr>
         </thead>
         <tbody>
+        {
+            users.map((item)=>(
           <tr>
             <td>
               <span className="custom-checkbox">
@@ -61,10 +71,10 @@ const Analytics = () =>{
                 <label htmlFor="checkbox1" />
               </span>
             </td>
-            <td>Thomas Hardy</td>
-            <td>thomashardy@mail.com</td>
-            <td>89 Chiaroscuro Rd, Portland, USA</td>
-            <td>(171) 555-2222</td>
+            <td>{item.fName}</td>
+            <td>{item.email}</td>
+            <td>{item.address}</td>
+            <td>{item.phone}</td>
             <td>
               <a href="#editEmployeeModal" className="edit" data-toggle="modal">
                 <i
@@ -90,6 +100,8 @@ const Analytics = () =>{
               </a>
             </td>
           </tr>
+          ))
+        }
         </tbody>
       </table>
     </div>

@@ -5,9 +5,125 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f3f3;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.DietApp {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  margin: 2rem 0 1rem 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#searchbox{
+  text-align: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+#searchbutton {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #7f21eb;
+  color: #f3f3f3;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+#searchbutton:hover {
+  background-color: #6c13d1;
+  cursor: pointer;
+}
+
+#mainbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#headtag {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.nutrients ul {
+  display: flex;
+  width: 35rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.meals {
+  display: flex;
+}
+
+#dietimage {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+}
+
+#ulist{
+  list-style: none;
+  align-items: center;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+#alink{
+  text-decoration: none;
+  background-color: #7f21eb;
+  color: #f3f3f3;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+#alink:hover {
+  background-color: #6c13d1;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .meals {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nutrients ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+

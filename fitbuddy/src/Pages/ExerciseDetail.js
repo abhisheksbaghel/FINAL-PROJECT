@@ -40,31 +40,36 @@ const ExerciseDetail = () => {
   if (!exerciseDetail) return <div>No Data</div>;
 
   return (
-    <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
-      <div className='row' style={{justifyContent: "space-around",border:"2px solid black"}}>
+    <div>
+      <div className='row' style={{marginTop:"0px", backgroundColor:"black", justifyContent: "space-around", border: "2px solid black"}}>
         <div className='col-2'>
-          <p style={{border:"2px solid black"}}>Ex1</p>
+          <p style={{ border: "2px solid black",textDecoration:"none" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0006">ABS Exercise</a></p>
         </div>
         <div className='col-2'>
-          <p style={{border:"2px solid black"}}>Ex1</p>
+          <p style={{ border: "2px solid black" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0015">Back Exercise</a></p>
         </div>
         <div className='col-2'>
-          <p style={{border:"2px solid black"}}>Ex1</p>
+          <p style={{ border: "2px solid black" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0022">Chest Exercise</a></p>
         </div>
         <div className='col-2'>
-          <p style={{border:"2px solid black"}}>Ex1</p>
+          <p style={{ border: "2px solid black" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0016">Legs Exercise</a></p>
         </div>
         <div className='col-2'>
-          <p style={{border:"2px solid black"}}>Ex1</p>
+          <p style={{ border: "2px solid black" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0018">Triceps Extension</a></p>
         </div>
         <div className='col-2'>
-          <p style={{border:"2px solid black"}}>Ex1</p>
+          <p style={{ border: "2px solid black" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0026">Biceps</a></p>
         </div>
       </div>
+    <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
+      
       <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
       <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
     </Box>
+    
+      
+    </div>
   );
 };
 
