@@ -41,7 +41,7 @@ const ExerciseDetail = () => {
 
   return (
     <div>
-      <div className='row' style={{marginTop:"0px", backgroundColor:"black", justifyContent: "space-around", border: "2px solid black"}}>
+       <div className='row' style={{marginTop:"0px", backgroundColor:"black", justifyContent: "space-around", border: "2px solid black"}}>
         <div className='col-2'>
           <p style={{ border: "2px solid black",textDecoration:"none" }}><a style={{textDecoration:"none",color:"white" }} href="/exercise/0006">ABS Exercise</a></p>
         </div>
@@ -62,14 +62,12 @@ const ExerciseDetail = () => {
         </div>
       </div>
     <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
-      
       <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
       <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
     </Box>
-    
       
-    </div>
+      </div>
   );
 };
 

@@ -12,7 +12,7 @@ const Analytics = () =>{
     },[]);
     return(
         <>
-        <div className="container-xl">
+        <div className="container-fluid">
   <div className="table-responsive">
     <div className="table-wrapper">
       <div className="table-title">

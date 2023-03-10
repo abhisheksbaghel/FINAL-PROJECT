@@ -1,1 +1,7 @@
 1678113245750	Delete element
+1678203891731	Rename package 'Controller'
+1678203911662	Rename package 'Dao'
+1678203932118	Rename package 'Model'
+1678203970449	Rename package 'Service'
+1678204000039	Rename package 'com.fitbuddy.fitbuddy'
+1678469220765	Encapsulate field 'gender'

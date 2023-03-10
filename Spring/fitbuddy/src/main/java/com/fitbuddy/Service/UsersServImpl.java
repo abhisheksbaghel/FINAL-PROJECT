@@ -1,0 +1,28 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fitbuddy.Dao.UsersDao;
+import com.fitbuddy.Model.Users;
+@Service
+public class UsersServImpl implements UsersServ{
+	@Autowired
+	private UsersDao userDao;
+
+	@Override
+	public void add(Users user) {
+		userDao.save(user);
+	}
+
+	@Override
+	public void removeById(int id) {
+		userDao.deleteById(id);
+	}
+
+	@Override
+	public List<Users> getAll() {
+		return userDao.findAll();
+	}
+}

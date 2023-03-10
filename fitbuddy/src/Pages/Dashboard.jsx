@@ -10,13 +10,13 @@ const Dashboard = () =>{
             id: "basic-bar"
           },
           xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+            categories: [1, 2, 3, 4, 5, 6, 7, 8, 9]
           }
         },
         series: [
           {
-            name: "series-1",
-            data: [30, 40, 45, 50, 49, 60, 70, 91]
+            name: "Daily Burns",
+            data: [600, 400, 450, 300, 590, 200, 700, 310]
           }
         ]
       };
@@ -51,36 +51,41 @@ const onload = () => {
 }
     return(
 
-      <>       
-      <div id="counter">
-  <div className="item">
+      <>   
+
+      <div className="container-fluid">    
+      <div id="counter" style={{backgroundColor:"#ffffff"}} className=" row">
+  <div className="item col-3">
     <h1 className="count" data-number={50}/>
     <h3 className="text">Reward Achieved</h3>
   </div>
-  <div className="item">
-    <h1 className="count" data-number={15} />
+  <div className="item col-3">
+    <h1 className="count" data-number={30} />
     <h3 className="text">year+ Eexperience</h3>
   </div>
-  <div className="item">
+  <div className="item col-3">
     <h1 className="count" data-number={20}/>
     <h3 className="text">project completed</h3>
   </div>
-  <div className="item">
+  <div className="item col-3">
     <h1 className="count" data-number={10}/>
     <h3 className="text">happy clients</h3>
   </div>
 </div>
  
-        <div className="dashb">
+        <div className="dashb " style={{backgroundColor:"#ffffff"}}>
         <Chart2/>
-            <h1>Dashboard page</h1>
-            <div style={{display: "flex", justifyContent:"space-around" }}>
+            <h1>Daily burns</h1>
+            <div className="row" style={{display: "flex", justifyContent:"space-around" }}>
+            <div className="col-6" style={{overflow:"hidden" }}>
             <Chart
               options={barItem.options}
               series={barItem.series}
               type="bar"
               width="500"
             />
+            </div>
+            <div className="col-6" style={{overflow:"hidden" }}>
             <Chart
               options={barItem.options}
               series={barItem.series}
@@ -88,6 +93,8 @@ const onload = () => {
               width="500"
             />
             </div>
+            </div>
+        </div>
         </div>
         </>
 

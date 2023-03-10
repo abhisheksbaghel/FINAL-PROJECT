@@ -11,6 +11,7 @@ import BMICal from "./Pages/Comment";
 import ExerciseDetail from "./Pages/ExerciseDetail";
 import LoginDemo2 from "./Pages/LoginDemo2";
 import Diet from "./Pages/Diet";
+import Profile from "./Pages/Profile";
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
         <Route path="/analytics" element={<Analytics/>}/>
         <Route path="/product" element={<Product/>}/>
         <Route path="/signup" element={<LoginDemo2/>}/>
-        <Route path="/exercise/0001" element={<ExerciseDetail />} />
+        <Route path="/exercise/:id" element={<ExerciseDetail />} />
         <Route path="/diet" element={<Diet />} />
+        <Route path="/profile" element={<Profile />} />
 
       </Routes>
       </Sidebar>

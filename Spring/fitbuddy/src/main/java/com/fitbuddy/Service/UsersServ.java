@@ -1,0 +1,11 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+import com.fitbuddy.Model.Users;
+
+public interface UsersServ {
+	void add(Users user);
+	void removeById(int id);
+	List<Users> getAll();
+}

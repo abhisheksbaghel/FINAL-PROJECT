@@ -1,6 +1,6 @@
 .dmain{
 	width: 550px;
-	height: 600px;
+	height: 650px;
 	background: #494d5f;
 	overflow: hidden;
 	/*background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover; */
@@ -25,19 +25,19 @@
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
-	margin: 60px;
+	margin: 40px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
 .emailReg{
 	width: 60%;
-	height: 20px;
+	height: 25px;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
 	margin: 5px auto;
-	padding: 10px;
+	padding: 20px;
 	border: none;
 	outline: none;
 	border-radius: 5px;
@@ -52,7 +52,7 @@
 	background: #573b8a;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 20px;
+	margin-top: 15px;
 	outline: none;
 	border: none;
 	border-radius: 5px;
@@ -75,7 +75,7 @@
 }
 
 #chk:checked ~ .login{
-	transform: translateY(-600px);
+	transform: translateY(-630px);
 }
 #chk:checked ~ .login label{
 	transform: scale(1);	

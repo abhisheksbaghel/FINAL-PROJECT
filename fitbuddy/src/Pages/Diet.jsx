@@ -32,7 +32,7 @@ function App() {
           placeholder="Calories (e.g. 2000)"
           onChange={handleChange}
         />
-        <button id="searchbutton" onClick={getMealData}>Get Daily Meal Plan</button>
+        <button style={{backgroundColor:"black" ,color:"white"}} id="searchbutton" onClick={getMealData}>Get Daily Meal Plan</button>
       </section>
       {mealData && <MealList mealData={mealData} />}
     </div>

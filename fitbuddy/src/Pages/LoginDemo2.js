@@ -215,6 +215,35 @@ function LoginDemo2() {
 
                 <input type="text" name="mobileReg" id="mobileReg"  className="emailReg"  placeholder="Mobile Number" onChange={handleMobileRegChange} value={mobileReg}/> <br/>
                 {mobileRegError && <div className='error-msg'>{mobileRegError}</div>}
+
+                <div className='d-flex justify-content-around'>
+
+                <div className="form-check" >
+    <input
+      className="form-check-input"
+      type="radio"
+      name="flexRadioDefault"
+      id="flexRadioDefault1"
+    />
+    <label style={{color:"white"}} className="form-check-label" htmlFor="flexRadioDefault1">
+      Female
+    </label>
+  </div>
+  <div className="form-check">
+    <input
+      className="form-check-input"
+      type="radio"
+      name="flexRadioDefault"
+      id="flexRadioDefault2"
+      defaultChecked=""
+    />
+    <label style={{color:"white"}} className="form-check-label" htmlFor="flexRadioDefault2">
+      Male
+    </label>
+  </div>
+  
+                    
+  </div>
             
             
             

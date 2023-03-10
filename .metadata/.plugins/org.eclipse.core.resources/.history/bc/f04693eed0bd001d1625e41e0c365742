@@ -1,0 +1,6 @@
+package com.fitbuddy.Service;
+
+public interface LoginServ {
+	boolean verify(String email,String password);
+	void update(int id);
+}
