@@ -15,6 +15,7 @@ public class UsersServImpl implements UsersServ{
 	public void add(Users user) {
 		userDao.save(user);
 	}
+	
 
 	@Override
 	public void removeById(int id) {
@@ -24,5 +25,16 @@ public class UsersServImpl implements UsersServ{
 	@Override
 	public List<Users> getAll() {
 		return userDao.findAll();
+	}
+
+	@Override
+	public Users verify(String email) {
+		return userDao.getByEmail(email);
+	}
+
+	@Override
+	public Users getById(int id) {
+		
+		return userDao.findById(id);
 	}
 }

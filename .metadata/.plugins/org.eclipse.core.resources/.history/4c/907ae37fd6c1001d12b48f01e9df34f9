@@ -1,0 +1,11 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+
+import com.fitbuddy.Model.DailyActivity;
+
+public interface DailyActivityServ {
+	List<DailyActivity> getFiveCk(int id);
+	void add(DailyActivity da);
+}

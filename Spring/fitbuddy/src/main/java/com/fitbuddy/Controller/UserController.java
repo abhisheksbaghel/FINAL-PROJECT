@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.fitbuddy.Model.Users;
 import com.fitbuddy.Service.UsersServ;
 @RequestMapping("/users")
@@ -27,6 +26,7 @@ public class UserController {
 		userServ.add(user);
 	}
 	
+	
 	@GetMapping("/getList")
 	public List<Users> getAllData()
 	{
@@ -38,5 +38,16 @@ public class UserController {
 	{
 		userServ.removeById(id);
 	}
-
+	
+	@GetMapping("/verify/{email}")
+	public Users getData(@PathVariable String email)
+	{
+		return userServ.verify(email);
+	}
+	@GetMapping("/getuser/{id}")
+	public Users getDataById(@PathVariable int id)
+	{
+		return userServ.getById(id);
+	}
+	
 }

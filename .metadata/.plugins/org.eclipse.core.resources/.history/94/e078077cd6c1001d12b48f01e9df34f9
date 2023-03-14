@@ -1,0 +1,31 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fitbuddy.Dao.DailyActivityDao;
+import com.fitbuddy.Model.DailyActivity;
+
+@Service
+public class DailyActivityServImpl implements DailyActivityServ {
+	
+	@Autowired
+	private DailyActivityDao dAD;
+
+	@Override
+	public List<DailyActivity> getFiveCk(int id) {
+		// TODO Auto-generated method stub
+		return dAD.findLast5RecordsByCompositeKey(id);
+	}
+
+	@Override
+	public void add(DailyActivity da) {
+		dAD.save(da);
+		
+	}
+	
+	
+
+}

@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./LoginDemo2.css";
+import axios from "axios";
+import $ from 'jquery';
 
 import {useState} from 'react';
+import { ReactSession }  from 'react-client-session';
+import { useNavigate,Link } from 'react-router-dom';
+import { color } from '@mui/system';
+
 
 /************Login Functions******************************* */
+ReactSession.setStoreType("localStorage");
 function LoginDemo2() {
+    
+
+    const navigate = useNavigate();
+   
+
+    const [users,setUsers] = useState([]);
 
     const [emailReg, setEmailReg] = useState('');
     const [emailRegError, setEmailRegError] = useState('');
@@ -69,7 +82,24 @@ function LoginDemo2() {
 
     const handleSubmitReg = (e) =>
     {
+
+
         e.preventDefault();
+        var user = {}
+    user["fullName"] = $("#usernameReg").val();
+    user["email"] = $("#emailReg").val();
+    user["phone"] = $("#mobileReg").val();
+    user["password"] = $("#passwordReg").val();
+    user["gender"]=$('#selectReg').find(":selected").val();
+    user["role"] = "user";
+
+    console.log("Hello"+user.gender);
+
+    const postData=()=>{
+        var url="http://localhost:8080/users/add";
+        axios.post(url,user);
+        alert("User registered successfully!!!");
+    }
         console.log(usernameReg);
         console.log(emailReg);
         console.log(passwordReg);
@@ -138,6 +168,15 @@ function LoginDemo2() {
             setMobileRegError('Please enter your Mobile');
         }
 
+        postData();
+
+        document.getElementById("usernameReg").value="";
+        document.getElementById("emailReg").value="";
+        document.getElementById("mobileReg").value="";
+        document.getElementById("passwordReg").value="";
+        document.getElementById("selectReg").value="";
+    user["role"] = "";
+
     };
     /************************************************************************************************ */
     const handleSubmitLogin = (e) =>
@@ -145,6 +184,56 @@ function LoginDemo2() {
         e.preventDefault();
         console.log(emailLogin);
         console.log(passwordLogin);
+        var url='http://localhost:8080/users/verify/'+emailLogin;
+
+        axios.get(url).then((response) => {
+        setUsers(response.data);
+        console.log(response.data);
+        ReactSession.set("email",response.data.email );
+        ReactSession.set("password",response.data.password);
+        console.log(response.data.email);
+        console.log(response.data.password);
+        ReactSession.set("id",response.data.id);
+        ReactSession.set("role",response.data.role);
+        let currentDate = new Date().toJSON().slice(0, 10);
+        ReactSession.set("date",currentDate);
+        if(response.data.password==passwordLogin && response.data.email==emailLogin)
+        {
+            var path='http://localhost:8080/fitness/getById/'+ReactSession.get("id");
+            console.log(path);
+        axios.get(path).then((response)=>{
+            if(response.data==[])
+            {
+                console.log("Hiii i am axios then");
+                window.location.replace("http://localhost:3000/dashboard");
+                alert('Setup your profile');
+                window.location.href='http://localhost:3000/editprofile';
+                 return false;
+            }
+            else{
+                ReactSession.set("targetBurn",response.data.targetBurn);
+                ReactSession.set("targetIntake",response.data.targetIntake);
+                ReactSession.set("age",response.data.age);
+                ReactSession.set("weight",response.data.weight);
+                ReactSession.set("height",response.data.height);
+            }
+        }).catch(()=>{
+            console.log("Hiii i am axios catch");
+                alert('Setup your profile');
+                window.location.href='http://localhost:3000/editprofile';
+                 return false;
+        });
+        window.location.href="http://localhost:3000/dashboard";
+        
+        ReactSession.set("phone",response.data.phone);
+        ReactSession.set("fullName",response.data.fullName);
+        ReactSession.set("gender",response.data.gender);
+        }
+        else
+        {
+            setPasswordLoginError('Incorrect credentials');
+        }
+  })
 
         //empty email check
         if (!emailLogin == '') 
@@ -216,34 +305,16 @@ function LoginDemo2() {
                 <input type="text" name="mobileReg" id="mobileReg"  className="emailReg"  placeholder="Mobile Number" onChange={handleMobileRegChange} value={mobileReg}/> <br/>
                 {mobileRegError && <div className='error-msg'>{mobileRegError}</div>}
 
-                <div className='d-flex justify-content-around'>
+                <div className=''>
 
-                <div className="form-check" >
-    <input
-      className="form-check-input"
-      type="radio"
-      name="flexRadioDefault"
-      id="flexRadioDefault1"
-    />
-    <label style={{color:"white"}} className="form-check-label" htmlFor="flexRadioDefault1">
-      Female
-    </label>
-  </div>
-  <div className="form-check">
-    <input
-      className="form-check-input"
-      type="radio"
-      name="flexRadioDefault"
-      id="flexRadioDefault2"
-      defaultChecked=""
-    />
-    <label style={{color:"white"}} className="form-check-label" htmlFor="flexRadioDefault2">
-      Male
-    </label>
-  </div>
+                <select className="form-select selectReg" id='selectReg'>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+                </select>
   
                     
-  </div>
+                </div>
             
             
             

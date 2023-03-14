@@ -39,11 +39,11 @@ public class Users {
 			this.id = id;
 		}
 
-		public String getfName() {
+		public String getfullName() {
 			return fullName;
 		}
 
-		public void setfName(String fullName) {
+		public void setfullName(String fullName) {
 			this.fullName = fullName;
 		}
 

@@ -1,0 +1,40 @@
+package com.fitbuddy.Model;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class DailyActivity {
+	
+	@EmbeddedId
+	private CompKey ck;
+	private int dailyBurn;
+	private int dailyIntake;
+	public CompKey getCk() {
+		return ck;
+	}
+	public void setCk(CompKey ck) {
+		this.ck = ck;
+	}
+	public int getDailyBurn() {
+		return dailyBurn;
+	}
+	public void setDailyBurn(int dailyBurn) {
+		this.dailyBurn = dailyBurn;
+	}
+	public int getDailyIntake() {
+		return dailyIntake;
+	}
+	public void setDailyIntake(int dailyIntake) {
+		this.dailyIntake = dailyIntake;
+	}
+	
+
+}

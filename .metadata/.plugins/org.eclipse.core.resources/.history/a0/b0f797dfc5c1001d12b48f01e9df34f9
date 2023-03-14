@@ -1,0 +1,9 @@
+package com.fitbuddy.Model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class DailyActivity {
+	
+
+}

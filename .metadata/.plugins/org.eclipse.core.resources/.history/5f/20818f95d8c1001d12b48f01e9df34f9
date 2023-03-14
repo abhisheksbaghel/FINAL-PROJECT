@@ -1,0 +1,30 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fitbuddy.Dao.DailyActivityDao;
+import com.fitbuddy.Model.DailyActivity;
+
+@Service
+@Transactional
+public class DailyActivityServImpl implements DailyActivityServ {
+	
+	@Autowired
+	private DailyActivityDao dAD;
+
+	@Override
+	public List<DailyActivity> findTop5ByIdGroupByOrderByDateDesc() {
+		// TODO Auto-generated method stub
+		return dAD.findTop5ByIdGroupByOrderByDateDesc().subList(0, 5);
+	}
+
+
+	
+	
+
+}

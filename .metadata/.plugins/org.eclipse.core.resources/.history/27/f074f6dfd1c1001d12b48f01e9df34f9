@@ -1,0 +1,20 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fitbuddy.Dao.DailyActivityDao;
+import com.fitbuddy.Model.CompKey;
+import com.fitbuddy.Model.DailyActivity;
+
+@Service
+public interface DailyActivityServ {
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,71 @@
+package com.fitbuddy.Model;
+
+import javax.persistence.Entity;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class Fitness {
+	
+	private int id;
+	
+	private int age;
+	
+	private int weight;
+	
+	private float height;
+	
+	private float targetBurn;
+	
+	private float targetIntake;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public float getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+
+	public float getTargetBurn() {
+		return targetBurn;
+	}
+
+	public void setTargetBurn(float targetBurn) {
+		this.targetBurn = targetBurn;
+	}
+
+	public float getTargetIntake() {
+		return targetIntake;
+	}
+
+	public void setTargetIntake(float targetIntake) {
+		this.targetIntake = targetIntake;
+	}
+
+}

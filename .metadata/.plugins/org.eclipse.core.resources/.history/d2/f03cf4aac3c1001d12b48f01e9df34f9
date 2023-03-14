@@ -1,0 +1,7 @@
+package com.fitbuddy.Model;
+
+
+
+public class CompKey implements DailyActivity{
+
+}

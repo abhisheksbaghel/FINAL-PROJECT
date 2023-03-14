@@ -1,77 +1,55 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React , {useState} from 'react';
+import Navbar from './Navbar';
+import Shop from './Shop';
+import Cart from './Cart';
+import './shop.css';
 
-const Product = () =>{
-    const productItem=[
-        {
-            name: "Protein",
-            url: "http://surl.li/fessg",
-            content:"Protein powder is a type of dietary supplement. The Food and Drug Administration (FDA) defers manufacturers in determining product safety and labeling."
-        },
-        {
-            name: "Protein",
-            url: "http://surl.li/fessg",
-            content:"Protein powder is a type of dietary supplement. The Food and Drug Administration (FDA) defers manufacturers in determining product safety and labeling."
-        },
-        {
-            name: "Protein",
-            url: "http://surl.li/fessg",
-            content:"Protein powder is a type of dietary supplement. The Food and Drug Administration (FDA) defers manufacturers in determining product safety and labeling."
-        },
-        {
-            name: "Protein",
-            url: "http://surl.li/fessg",
-            content:"Protein powder is a type of dietary supplement. The Food and Drug Administration (FDA) defers manufacturers in determining product safety and labeling."
-        },
-        {
-            name: "Protein",
-            url: "http://surl.li/fessg",
-            content:"Protein powder is a type of dietary supplement. The Food and Drug Administration (FDA) defers manufacturers in determining product safety and labeling."
-        },
-        {
-            name: "Protein",
-            url: "http://surl.li/fessg",
-            content:"Protein powder is a type of dietary supplement. The Food and Drug Administration (FDA) defers manufacturers in determining product safety and labeling."
-        },
-        
-    ]
-    return(
-        <div className='productPG'>
-           <div className="row me-auto">
-            {
+const Product = () => {
+	const [show, setShow] = useState(true);
+	const [cart , setCart] = useState([]);
+	const [warning, setWarning] = useState(false);
 
-                productItem.map((items,index)=>(
-            <div className="col-4 mb-4">
-            <Card sx={{ maxWidth: 345 , backgroundColor: "black" , minWidth: 345}}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image={items.url}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div" color={'white'}>
-          {items.name}
-        </Typography>
-        <Typography variant="body2" color={'white'}>
-          {items.content}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-    </div>
-                ))
+	const handleClick = (item)=>{
+		let isPresent = false;
+		cart.forEach((product)=>{
+			if (item.id === product.id)
+			isPresent = true;
+		})
+		if (isPresent){
+			setWarning(true);
+			setTimeout(()=>{
+				setWarning(false);
+			}, 2000);
+			return ;
+		}
+		setCart([...cart, item]);
+	}
+
+	const handleChange = (item, d) =>{
+		let ind = -1;
+		cart.forEach((data, index)=>{
+			if (data.id === item.id)
+				ind = index;
+		});
+		const tempArr = cart;
+		tempArr[ind].amount += d;
+		
+		if (tempArr[ind].amount === 0)
+			tempArr[ind].amount = 1;
+		setCart([...tempArr])
+	}
+
+  return (
+	<React.Fragment>
+		<Navbar size={cart.length} setShow={setShow} />
+		{
+			show ? <Shop handleClick={handleClick} /> : <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
+		}
+		{
+			warning && <div className='warning'>Item is already added to your cart</div>
+		}
+	</React.Fragment>
+  )
 }
-    </div>
-    </div>
-    )
-}
+
 export default Product;

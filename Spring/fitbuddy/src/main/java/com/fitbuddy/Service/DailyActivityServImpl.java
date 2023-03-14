@@ -1,0 +1,33 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.fitbuddy.Dao.DailyActivityDao;
+import com.fitbuddy.Model.DailyActivity;
+
+@Service
+@Transactional
+public class DailyActivityServImpl implements DailyActivityServ {
+
+    @Autowired
+    private DailyActivityDao dailyActivityDao;
+
+    public List<DailyActivity> findTop5ByIdOrderByDateDesc(int id) {
+        Pageable pageable = PageRequest.of(0, 5);
+        return dailyActivityDao.findTop5ByIdOrderByDateDesc(id, pageable);
+    }
+
+	@Override
+	public void add(DailyActivity da) {
+		dailyActivityDao.save(da);
+		
+	}
+
+}

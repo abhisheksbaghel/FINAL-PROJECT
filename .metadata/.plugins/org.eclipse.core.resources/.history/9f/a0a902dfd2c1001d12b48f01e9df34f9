@@ -1,0 +1,11 @@
+package com.fitbuddy.Service;
+
+import java.util.List;
+
+import com.fitbuddy.Model.CompKey;
+import com.fitbuddy.Model.DailyActivity;
+
+public interface DailyActivityServ {
+	List<DailyActivity> getFiveCk(CompKey ck);
+	void add(DailyActivity da);
+}

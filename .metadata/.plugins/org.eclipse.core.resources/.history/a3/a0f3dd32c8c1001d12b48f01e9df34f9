@@ -1,0 +1,5 @@
+package com.fitbuddy.Service;
+
+public interface DailyActivityServ {
+
+}

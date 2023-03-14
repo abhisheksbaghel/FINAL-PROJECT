@@ -1,0 +1,42 @@
+.bd{
+    width: 60%;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    justify-content: space-around;
+}
+
+.cards1{
+    width: 250px;
+    padding: 20px;
+    margin-right: 50px;
+}
+.cards1:hover{
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.image_box1 img{
+    width: 150px;
+    height: 200px;
+}
+.details1 p:nth-child(1){
+    font-weight: bold;
+}
+.details1 p:nth-child(2){
+    color: grey;
+    font-size: 0.8rem;
+}
+.details1 p:nth-child(3){
+    font-weight: bold;
+    color: grey;
+}
+.details1 button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    background-color: rgba(142, 156, 164, 0.872);
+    outline: none;
+    border-radius: 2px;
+}

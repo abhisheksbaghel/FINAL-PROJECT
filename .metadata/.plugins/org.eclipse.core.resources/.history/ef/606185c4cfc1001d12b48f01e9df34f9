@@ -1,0 +1,19 @@
+package com.fitbuddy.Dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.fitbuddy.Model.CompKey;
+import com.fitbuddy.Model.DailyActivity;
+
+@Repository
+public interface DailyActivityDao extends JpaRepository<DailyActivity, CompKey> {
+
+	@Query(value="Select a from DailyActivity a where a.ck=:ck orderby desc a.ck.date desc limit(1,5)" ,nativeQuery = true)
+	List<DailyActivity> getLastFiveById(@Param (value="ck")CompKey ck);
+	
+}

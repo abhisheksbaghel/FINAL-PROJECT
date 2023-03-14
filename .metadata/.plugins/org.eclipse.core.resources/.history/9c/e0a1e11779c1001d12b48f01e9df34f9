@@ -1,0 +1,5 @@
+package com.fitbuddy.Dao;
+
+public interface FitnessDao {
+
+}

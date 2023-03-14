@@ -1,0 +1,18 @@
+package com.fitbuddy.Model;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
+@Embeddable
+public class CompKey implements Serializable{
+	
+	private int uid;
+	private String date;
+
+}

@@ -10,6 +10,13 @@ const Analytics = () =>{
         console.log(response.data);
   });
     },[]);
+
+    function deleteHandler(id)
+    {
+      var url='http://localhost:8080/users/details/' + id;
+        console.log(url);
+    }
+
     return(
         <>
         <div className="container-fluid">
@@ -17,66 +24,40 @@ const Analytics = () =>{
     <div className="table-wrapper">
       <div className="table-title">
         <div className="row">
-          <div className="col-sm-6">
+          <div className="col-lg-12">
             <h2>
               Manage <b>Users</b>
             </h2>
           </div>
-          <div className="col-sm-6">
-            <a
-              href="#addEmployeeModal"
-              className="btn btn-success"
-              data-toggle="modal"
-            >
-              <i className="material-icons"></i> <span>Add New User</span>
-            </a>
-            <a
-              href="#deleteEmployeeModal"
-              className="btn btn-danger"
-              data-toggle="modal"
-            >
-              <i className="material-icons"></i> <span>Delete</span>
-            </a>
-          </div>
+          
         </div>
       </div>
       <table className="table table-striped table-hover">
         <thead>
           <tr>
             <th>
-              <span className="custom-checkbox">
-                <input type="checkbox" id="selectAll" />
-                <label htmlFor="selectAll" />
-              </span>
+              Id
             </th>
             <th>Name</th>
             <th>Email</th>
-            <th>Address</th>
+            <th>Role</th>
             <th>Phone</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
         {
-            users.map((item)=>(
-          <tr>
-            <td>
-              <span className="custom-checkbox">
-                <input
-                  type="checkbox"
-                  id="checkbox1"
-                  name="options[]"
-                  defaultValue={1}
-                />
-                <label htmlFor="checkbox1" />
-              </span>
+            users.map((item,key)=>(
+          <tr key={item.id}>
+            <td id="idmap" >
+            {item.id}
             </td>
-            <td>{item.fName}</td>
+            <td>{item.fullName}</td>
             <td>{item.email}</td>
-            <td>{item.address}</td>
+            <td>{item.role}</td>
             <td>{item.phone}</td>
             <td>
-              <a href="#editEmployeeModal" className="edit" data-toggle="modal">
+              <a href="#" className="edit" data-toggle="modal">
                 <i
                   className="material-icons"
                   data-toggle="tooltip"
@@ -86,9 +67,10 @@ const Analytics = () =>{
                 </i>
               </a>
               <a
-                href="#deleteEmployeeModal"
+              href="#"
                 className="delete"
                 data-toggle="modal"
+                onClick={()=>{deleteHandler(item.id)}}
               >
                 <i
                   className="material-icons"
